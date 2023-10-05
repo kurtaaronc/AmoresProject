@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main{
+  display: flex; /* This sets the display property to flex */
+  flex-direction: row; /* This is the default value and makes children display in a row */
+}
+
+.navbar {
+  background-color: rgb(1, 38, 69);
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-container {
+  display: flex;
+  align-items: center;
+}
+
+.side-nav {
+  width: 350px;
+  min-width: 230px;
+  min-height: calc(100vh - 0px);
+  background-color: #1e6197;
+  color: #fff;
+  box-shadow: 5px 5px 5px #939393;
+}
+
+/* Styles for .nav-item */
+.nav-item {
+  padding: 25px 50px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Media query for screens with max-width: 1300px */
+@media only screen and (max-width: 1300px) {
+  .nav-item {
+    padding: 25px 40px;
+  }
+}
+
+/* Hover effect for .nav-item */
+.nav-item:hover {
+  background-color: rgb(22, 84, 134);
+}
+
+/* Styles for .main-container */
+.main-container {
+  display: flex;
+}
+
+/* Styles for .side-nav */
+.main-container .side-nav {
+  width: 350px;
+  min-width: 230px;
+  min-height: calc(100vh - 70px);
+  background-color: #113c60;
+  color: #fff;
+  box-shadow: 5px 5px 5px #939393;
+}
+
+/* Media query for screens with max-width: 1300px */
+@media only screen and (max-width: 1300px) {
+  /* Adjust .side-nav styles for smaller screens */
+  .main-container .side-nav {
+    width: 100px;
+    min-width: 100px;
+  }
+}
+
+/* Styles for .main */
+.main-container .main {
+  padding: 30px;
+}

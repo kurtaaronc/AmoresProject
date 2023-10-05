@@ -1,0 +1,33 @@
+<div class="navbar">
+    <button class="action-button" (click)="backToDashBoard()">Back to Dashboard</button>
+    <h1 style="margin:0">Loan Lists</h1>
+    <button class="action-button" (click)="createNewTransaction()">Create New Loan</button>
+</div>
+<table *ngIf="!loading">
+    <thead>
+      <tr>
+        <th>Names</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let transaction of transactions; let index = index">
+            <!-- <td>{{ transaction.Date | date:'MM/dd/yyyy' }}</td> -->
+            <td>{{transaction}}</td>
+            <!-- <td>{{transaction.LoanAmount}}</td> -->
+            <!-- <td>{{transaction.Interest}}</td> -->
+            <!-- <td>{{transaction.Terms}}</td>
+            <td>{{transaction.ReleaseAmount}}</td> -->
+            <!-- <td>{{transaction.Profit}}</td>
+            <td>{{transaction.Profit * .40}}</td>
+            <td>{{transaction.Profit * .60}}</td> -->
+            <td>
+              <button class="action-button" (click)="viewTransactionDetails(transaction)">View Active Loans</button>
+              <!-- <button class="action-button" style="margin-left: 10px;" (click)="createNewTransaction(index + 1)">Create Transaction</button> -->
+            </td>
+        </tr>
+    </tbody>
+  </table>
+  <div class="loader-container" *ngIf="loading">
+    <div class="loader"></div>
+  </div>

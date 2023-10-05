@@ -1,0 +1,64 @@
+<div class="scrollable-content" *ngIf="openModalFor == 'collectibles'">
+  <div class="modal-header">
+    <h2>Collectibles</h2>
+    <span class="close" (click)="closeModal()">&times;</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Amount
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of listOfCollectibles">
+          <td>{{transaction.Name}}</td>
+          <td>{{transaction.Payment}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="scrollable-content" *ngIf="openModalFor == 'monthlyReport'">
+  <div class="modal-header">
+    <h2>September List of Loans</h2>
+    <span class="close" (click)="closeModal()">&times;</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Loan Date</th>
+        <th>Name</th>
+        <th>Loan Amount</th>
+        <th>Release Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of monthlyTransactions">
+          <td>{{transaction.Date}}</td>
+          <td>{{transaction.Name}}</td>
+          <td>{{transaction.LoanAmount}}</td>
+          <td>{{transaction.ReleaseAmount}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="scrollable-content" *ngIf="openModalFor == 'activeLoans'">
+  <div class="modal-header">
+    <h2>Active Loans</h2>
+    <span class="close" (click)="closeModal()">&times;</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Number of Loans</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let loan of activeLoansToDisplay">
+          <td>{{loan.Name}}</td>
+          <td>{{loan.LoanCount}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

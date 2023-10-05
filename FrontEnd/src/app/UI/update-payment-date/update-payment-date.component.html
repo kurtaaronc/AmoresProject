@@ -1,0 +1,16 @@
+<div class="form-container">
+  <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+    <h2>Update Payment Date</h2>
+    <div class="input-container">
+      <input class="input-field" placeholder="Expected Date Of Payment" type="date" id="ActualDateOfPayment" formControlName="ActualDateOfPayment">
+    </div>
+    <div class="button-container">
+      <button  [disabled]="isSubmitting" type="submit" class="action-button">Submit</button>
+      <button class="action-button" (click)="backToHomePage()">Back</button>
+    </div>
+    <div style="display:flex; justify-content: center; margin-top:20px">
+      <span *ngIf="showSuccessLabel" class="success-message">Update Date Sucessful</span>
+      <span *ngIf="!completedTransaction" class="error-message">Update Date Failed</span>
+    </div>
+  </form>
+</div>

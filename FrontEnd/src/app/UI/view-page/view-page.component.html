@@ -1,0 +1,56 @@
+<div *ngIf="!loading">
+  <div *ngFor="let transaction of transactions">
+    <div class="navbar">
+      <h2>Name: {{ pageHeader }}</h2>
+      <h2>Loan Date: {{ transaction.Date }}</h2>
+      <h2>Loan Amount: {{ transaction.LoanAmount }}</h2>
+      <h2>Release Amount: {{transaction.ReleaseAmount}}</h2>
+      <h2>Interest: {{transaction.Interest}}</h2>
+      <h2>Terms: {{ transaction.Terms }}</h2>
+      <button style="margin-left:10px"class="action-button" (click)="completePayment(transaction._id)">Complete Loan</button>
+      <div style="margin-top: 10px;">
+        <span *ngIf="showSuccessLabel" class="success-message">Complete Loan Succesful</span>
+        <span *ngIf="showFailedLabel" class="error-message">Complete Loan Failed</span>
+      </div>
+    </div>
+    <table *ngIf="!loading">
+      <thead>
+        <tr>
+          <th>Expected Date of Payment</th>
+          <th>Expected Payment</th>
+          <th>Remaining Balance</th>
+          <th>Actual Date of Payment</th>
+          <th>Actual Payment Made</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let payment of payments; let index = index">
+          <ng-container *ngIf="payment.TransactionId == transaction._id">
+            <td>{{ payment.PaymentDate }}</td>
+            <td>{{ payment.Payment }}</td>
+            <td>{{ payment.RemainingBalance }}</td>
+            <td>{{ payment.ActualDateOfPayment }}</td>
+            <td>{{ payment.ActualPaymentMade }}</td>
+            <td>
+              <button class="action-button" (click)="createPayment(transaction.Name, payment._id)">Create Payment</button>
+              <button style="margin-left:10px" class="action-button" (click)="updateDateOfPayment(transaction.Name, payment._id)">Update Date</button>
+            </td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="transactions.length == 0">
+    <div class="navbar">
+      <h1>No Loans/Transactions Available</h1>
+      <button class="action-button" (click)="backToHomePage()">Go Back to HomePage</button>
+  </div>
+  </div>
+  <div style="display:flex; justify-content: flex-end; padding-top:10px">
+    <button class="action-button" (click)="backToHomePage()">Back</button>
+  </div>
+</div>
+<div class="loader-container" *ngIf="loading">
+  <div class="loader"></div>
+</div>

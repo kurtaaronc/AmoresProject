@@ -1,0 +1,45 @@
+<div class="form-container">
+  <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+    <h2>Create New Loan</h2>
+    <div class="input-container">
+      <a>Loan Date:</a>
+      <input class="input-field" placeholder="Date" type="date" id="Date" formControlName="Date">
+    </div>
+    <div class="input-container">
+      <input class="input-field" placeholder="Name" type="text" id="Name" formControlName="Name">
+    </div>
+    <div class="input-container">
+      <input class="input-field" placeholder="LoanAmount" type="number" id="LoanAmount" formControlName="LoanAmount">
+    </div>
+    <div class="input-container">
+      <input class="input-field" placeholder="ReleaseAmount" type="number" id="ReleaseAmount" formControlName="ReleaseAmount">
+    </div>
+    <div class="input-container">
+      <input class="input-field" placeholder="Terms" type="number" id="Terms" formControlName="Terms">
+    </div>
+    <div class="input-container">
+      <input class="input-field" placeholder="Interest in Decimal" type="number" id="Interest" formControlName="Interest">
+    </div>
+    <!-- <div class="input-container">
+      <input class="input-field" placeholder="ReleaseAmount" type="number" id="ReleaseAmount" formControlName="ReleaseAmount">
+    </div>
+    <div class="input-container">
+      <input class="input-field" placeholder="Profit" type="number" id="Profit" formControlName="Profit">
+    </div>  -->
+    <div class="input-container">
+      <a>Expected Date of Payment:</a>
+      <input class="input-field" placeholder="Expected Date Of Payment" type="date" id="ExpectedDateOfPayment" formControlName="ExpectedDateOfPayment">
+    </div>
+    <!-- <div class="input-container">
+      <input class="input-field" placeholder="Expected Payment" type="number" id="ExpectedPayment" formControlName="ExpectedPayment">
+    </div> -->
+    <div class="button-container">
+      <button  [disabled]="isSubmitting" type="submit" class="action-button">Submit</button>
+      <button class="action-button" (click)="backToHomePage()">Back</button>
+    </div>
+    <div style="display:flex; justify-content: center; margin-top:20px">
+      <span *ngIf="showSuccessLabel" class="success-message">Create Loan Sucessful</span>
+      <span *ngIf="!completedTransaction" class="error-message">Create Loan Failed</span>
+    </div>
+  </form>
+</div>
